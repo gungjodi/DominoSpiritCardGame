@@ -18,7 +18,7 @@ public class Card implements ICardValues {
 
     @Override
     public int getTotalVal() {
-        return getFirstVal()+getSecondVal();
+        return Math.abs(getFirstVal()+getSecondVal()) % 10;
     }
 
     @Override
