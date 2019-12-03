@@ -35,8 +35,6 @@ public class Player extends AbstractPlayer {
 
     @Override
     public int getHandValue() {
-        int totalValue = Math.abs(this.value) % 10;
-        System.out.printf("%s total value is %d\n",this.name,totalValue);
-        return totalValue;
+        return Math.abs(this.value) % 10;
     }
 }

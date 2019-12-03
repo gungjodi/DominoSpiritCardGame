@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MainClass {
@@ -16,25 +17,22 @@ public class MainClass {
 //            pair = shuffledCards.get(0).isPair()&&shuffledCards.get(1).isPair()&&shuffledCards.get(2).isPair();
 //            j++;
 //        }
-
-        Player player1 = new Player("Player 1",1);
-        Player player2 = new Player("Player 2",2);
+        List<Player> players = new ArrayList<>();
+        for(int i=1;i<=5;i++){
+            players.add(new Player("Player "+i,1));
+        }
         for(int i=0;i<3;i++){
-            player1.drawCard(shuffledCards.get(0));
-            System.out.printf("%d %d %d\n",player1.getCardsOnHand().get(i).getFirstVal(),player1.getCardsOnHand().get(i).getSecondVal(),shuffledCards.get(0).getTotalVal());
-            shuffledCards.remove(0);
-            player2.drawCard(shuffledCards.get(0));
-            System.out.printf("%d %d %d\n",player2.getCardsOnHand().get(i).getFirstVal(),player2.getCardsOnHand().get(i).getSecondVal(),shuffledCards.get(0).getTotalVal());
-            shuffledCards.remove(0);
+            for (Player player:players) {
+                player.drawCard(shuffledCards.get(0));
+                System.out.printf("%d %d %d\n",player.getCardsOnHand().get(i).getFirstVal(),player.getCardsOnHand().get(i).getSecondVal(),shuffledCards.get(0).getTotalVal());
+                shuffledCards.remove(0);
+            }
         }
-        if(player1.getHandValue()<player2.getHandValue()){
-            System.out.printf("%s win!\n",player2.getName());
+
+        Board board = new Board();
+        for (Player player:players) {
+            System.out.printf("%s total value is %d\n",player.getName(),player.getHandValue());
         }
-        else if(player1.getHandValue()>player2.getHandValue()){
-            System.out.printf("%s win!\n",player1.getName());
-        }
-        else {
-            System.out.print("Draw!\n");
-        }
+        System.out.printf("%s wins!",board.winner(players).getName());
     }
 }
