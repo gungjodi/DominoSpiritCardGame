@@ -4,6 +4,9 @@ Add feature 3
 Add feature 4
 
 Hazim add feature A2
+Hazim add feature A4
+// HAHA
+
 JODI UPDATE FEATURE A1
 JODI ADD FEATURE A3
 
