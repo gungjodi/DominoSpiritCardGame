@@ -4,3 +4,4 @@ Add feature 3
 Add feature 4
 
 Hazim add feature B1
+Hazim add feature B2
